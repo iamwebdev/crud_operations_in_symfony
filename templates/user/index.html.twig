@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+{% for message in app.flashes('message_sucess') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
+
+<div class="example-wrapper">
+
+	<a href="user/create">Add New User</a>
+    
+    <h3>User List</h3>
+    <table border="1" cellspacing="1" cellpadding="1">
+    	<tr>
+	    	<th>Sr. No</th>
+	    	<th>Name</th>
+	    	<th>City</th>
+	    	<th>Ocuupation</th>
+	    	<th>Action</th>
+    	</tr>
+    	<tbody>
+    	{% set i = 1 %}
+	    	{% for user in users %}
+	    		<tr> 
+	    			<td>{{i}}</td>
+	    			<td>{{user.name}}</td>
+	    			<td>{{user.city}}</td>
+	    			<td>{{user.occupation}}</td>
+	    			<td><a href="user/{{user.id}}/edit">Edit</a>&nbsp;&nbsp;<a onclick='return confirm("Do you really want to delete?")' href="user/{{user.id}}/delete">Delete</a></td>
+	    		</tr>
+			{% set i = i + 1 %}
+        {% endfor %}
+    	</tbody>
+    </table>
+</div>
+{% endblock %}

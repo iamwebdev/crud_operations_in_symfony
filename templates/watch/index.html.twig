@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Watch index{% endblock %}
+
+{% block body %}
+    <h1>Watch index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for watch in watches %}
+            <tr>
+                <td>{{ watch.id }}</td>
+                <td>{{ watch.brand }}</td>
+                <td>{{ watch.price }}</td>
+                <td>
+                    <a href="{{ path('watch_show', {'id': watch.id}) }}">show</a>
+                    <a href="{{ path('watch_edit', {'id': watch.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('watch_new') }}">Create new</a>
+{% endblock %}

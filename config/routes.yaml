@@ -1,0 +1,32 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+app_lucky_number:
+    path: /lucky/number
+    controller: App\Controller\DemoController::number
+show_all:
+  path: /showall
+  controller: App\Controller\DemoController::showAll
+# Crud starts  
+user:
+  path : /user
+  controller: App\Controller\UserController::index
+user_create:
+  path: /user/create
+  controller: App\Controller\UserController::create
+user_delete:
+  path: /user/{id}/delete
+  controller: App\Controller\UserController::destroy
+user_show:
+  path: /user/{id}/edit
+  controller: App\Controller\UserController::showUser
+user_update:
+  path: /update/{id}
+  controller: App\Controller\UserController::update
+show_all_patient:
+  path: /patient
+  controller: App\Controller\PatientController::index
+save_patients:
+  path: /patient/new
+  controller: App\Controller\PatientController::new                  

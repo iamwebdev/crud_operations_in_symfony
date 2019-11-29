@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<a href="/patient/new">Create</a>
+<h3>User List</h3>
+    <table border="1" cellspacing="1" cellpadding="1">
+    	<tr>
+	    	<th>Sr. No</th>
+	    	<th>Name</th>
+	    	<th>Address</th>
+	    	<th>Action</th>
+    	</tr>
+    	<tbody>
+    	{% set i = 1 %}
+	    	{% for patient in patients %}
+	    		<tr> 
+	    			<td>{{i}}</td>
+	    			<td>{{patient.name}}</td>
+	    			<td>{{patient.address}}</td>
+					<td><a href="">Edit</a><a href="">Show</a><a href="">Delete</a></td>
+	    		</tr>
+			{% set i = i + 1 %}
+        {% endfor %}
+    	</tbody>
+    </table>
+
+{% endblock %}
